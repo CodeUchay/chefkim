@@ -3,14 +3,15 @@ import Nav from 'components/Nav';
 
 export default function Layout({children}) {
   const { data: session } = useSession();
+  console.log("Session successful");
   if (!session) {
     return (
       <div className="bg-pink-800 w-screen h-screen flex items-center">
         <div className="text-center w-full">
           <button
-            onClick={() => signIn("google")}
+            onClick={() => signIn('google')}
             className="bg-white p-2 px-4 rounded-lg"
-          >
+          > 
             Login With Google
           </button>
         </div>

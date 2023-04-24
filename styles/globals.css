@@ -5,6 +5,31 @@
 .react_icons {
     display: flex; 
     align-items: center;
-    gap: .5rem;
+    gap: 0.5rem;
     padding: .7rem;
+}
+
+input, textarea {
+    @apply  border-2 border-gray-300 rounded-md px-1 w-full mb-2;
+}
+input:focus, textarea:focus {
+    @apply border-green-200;
+}
+h1 {
+    @apply text-green-900 mb-2 text-xl;
+}
+label {
+    @apply text-green-900;
+}
+.save_btn{
+    @apply bg-blue-500 text-white rounded-md px-5 py-1;
+}
+table.items {
+    @apply w-full;
+}
+table.items thead tr td {
+    @apply border border-blue-200 p-1;
+}
+table.items a {
+    @apply bg-blue-400 text-white text-sm py-1 px-2 inline-flex gap-1 rounded-md;
 }
