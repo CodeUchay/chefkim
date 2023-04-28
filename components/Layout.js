@@ -1,6 +1,7 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import Nav from 'components/Nav';
 
+//General layout for the Dashboard page
 export default function Layout({children}) {
   const { data: session } = useSession();
   console.log("Session successful");
@@ -18,6 +19,7 @@ export default function Layout({children}) {
       </div>
     );
   }
+  //if session is successful
   return (
     <>
       <div className="bg-green-600 min-h-screen flex ">
