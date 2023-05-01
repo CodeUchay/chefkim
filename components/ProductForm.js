@@ -1,4 +1,4 @@
-
+import {FaFileUpload} from "react-icons/fa";
 import axios from 'axios';
 import {useRouter } from 'next/router';
 import { useState } from 'react';
@@ -11,7 +11,8 @@ export default function ProductForm({
     price2kg:existingPrice2kg,
     price3kg:existingPrice3kg,
     price5kg:existingPrice5kg,
-    price10kg:existingPrice10kg
+    price10kg:existingPrice10kg,
+    images
 }){
     const [title, setTitle]  = useState(existingTitle || '');
     const [description, setDescription]  = useState(existingDescription ||'');
@@ -41,10 +42,28 @@ export default function ProductForm({
       console.log('america has a problem');
       router.push('/products');
     }
+    async function uploadImages (e){
+      const files = e.target?.files;
+      if (files?.length > 0){
+        const data = new FormData();
+        for (const file of files) {
+          data.append('file', file)
+        }
+        const res = await axios.post('/api/upload', data);
+        console.log(res.data);
+      }
+    }
   return (
     <form onSubmit={saveProduct}>
     <label>Product name</label>
     <input type='text' placeholder='product name' value={title} onChange={e => setTitle(e.target.value)}/>
+    <label>Photo</label>
+    <div className='mb-2  flex flex-wrap gap-1'>
+    <button className='h-24 bg-white p-4 shadow-sm rounded-sm border border-gray-200'> <FaFileUpload/> <span>Upload</span> </button>
+    {!images?.length && (
+      <div> No photos for this product</div>
+    )}
+    </div>
     <label>Description</label>
     <textarea placeholder='description' value={description} onChange={e => setDescription(e.target.value)}/>
     <label>Price1kg</label>
