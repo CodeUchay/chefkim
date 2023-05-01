@@ -2,7 +2,7 @@ import Layout from '@/components/Layout';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import axios from "axios";
-import {FaPen} from "react-icons/fa";
+import {FaPen, FaTrashAlt} from "react-icons/fa";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -27,6 +27,7 @@ export default function Products() {
               <td>{product.title}</td>
               <td> 
                 <Link href={'/products/edit/'+ product._id}><FaPen/> Edit</Link>
+                <Link href={'/products/delete/'+ product._id}><FaTrashAlt/> Delete</Link>
               </td>
             </tr>
           ))}

@@ -10,11 +10,11 @@ export default function EditProductPage(){
     const {id} = router.query;
     useEffect(() => {
         if (!id){
+            console.log("ID doesmnt exist")
             return;
         }
         axios.get('/api/products?id='+id).then (response => {
            setProductInfo(response.data);
-
         })
     }, [id]);
     return(
