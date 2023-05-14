@@ -2,6 +2,7 @@ import { FaStore, FaHome, FaShoppingBasket, FaList, FaGear } from "react-icons/f
 import {AiFillSetting } from "react-icons/ai";
 import Link from 'next/link';
 import { useRouter } from "next/router";
+import { signOut } from "next-auth/react";
 
 export default function Nav() {
     const inactiveLink = 'react_icons';
@@ -29,7 +30,9 @@ export default function Nav() {
         <Link href={"/settings"} className={pathname.includes('/settings') ? activeLink : inactiveLink}>
           <AiFillSetting /> Settings
         </Link>
-       
+        <div>
+        <button onClick={() => signOut('google')} className="bg-red-600 hover:bg-red-900 text-white font-bold py-2 px-4 rounded hover:scale-105 duration-300">Logout</button>
+        </div>
       </nav>
     </aside>
     //Preetier arrangement Shift + Alt + F

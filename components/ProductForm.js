@@ -55,6 +55,7 @@ export default function ProductForm({
     }
   return (
     <form onSubmit={saveProduct}>
+      <div className='mb-2  flex flex-col gap-1'>
     <label>Product name</label>
     <input type='text' placeholder='product name' value={title} onChange={e => setTitle(e.target.value)}/>
     <label>Photo</label>
@@ -64,6 +65,7 @@ export default function ProductForm({
       <div> No photos for this product</div>
     )}
     </div>
+    
     <label>Description</label>
     <textarea placeholder='description' value={description} onChange={e => setDescription(e.target.value)}/>
     <label>Price1kg</label>
@@ -77,6 +79,7 @@ export default function ProductForm({
     <label>Price10kg</label>
     <input type='text' placeholder='price' value={price10kg} onChange={e => setPrice10kg(e.target.value)}/>
     <button type='submit' className='save_btn'>Save</button>
+    </div>
     </form>
   );
 }
