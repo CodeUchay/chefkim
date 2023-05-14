@@ -54,7 +54,7 @@ export default function Layout({ children }) {
             </div>
 
             <div className="mt-3 text-xs flex justify-between items-center text-green-900">
-              <p>Don't have an account?</p>
+              <p>You do not have an account?</p>
               <button className="py-2 px-5 bg-green-600 text-white border rounded-xl hover:scale-110 duration-300">
                 Register
               </button>
@@ -63,7 +63,7 @@ export default function Layout({ children }) {
           <div className="md:block hidden w-1/2">
             <Image
               className="rounded-full mt-20 mb-20 border-2 border-red-500 hover:transform hover:scale-105 hover:transition hover:duration-500"
-              src={chef}
+              src={chef} alt="chef kim logo"
             />
           </div>
         </div>
